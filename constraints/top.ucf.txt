@@ -1,0 +1,8 @@
+NET "clk" LOC = "P123";
+NET "sck" LOC = "P124";
+NET "ws"  LOC = "P125";
+NET "sd"  LOC = "P126";
+
+NET "spi_mosi" LOC = "P127";
+NET "spi_clk"  LOC = "P128";
+NET "spi_cs"   LOC = "P129";
