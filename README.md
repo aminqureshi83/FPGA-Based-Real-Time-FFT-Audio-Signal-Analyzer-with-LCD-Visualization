@@ -1,126 +1,84 @@
-# FPGA-Based-Real-Time-FFT-Audio-Signal-Analyzer-with-LCD-Visualization
-This project presents a real-time audio signal processing system implemented on a Spartan-6 FPGA. The system captures audio input via an I2S microphone, performs Fast Fourier Transform (FFT) computation in hardware, and visualizes the frequency spectrum on an SPI-based ST7735 color LCD.
-# FPGA-Based Real-Time FFT Audio Signal Analyzer with LCD Visualization
+# FPGA-Based Real-Time FFT Audio Signal Analyzer
 
 ## 📌 Overview
 
-This project implements a real-time audio signal processing system on a Spartan-6 FPGA. Audio is captured via an I2S microphone, processed using Fast Fourier Transform (FFT), and displayed as a frequency spectrum on an SPI-based ST7735 LCD.
-
-The design demonstrates efficient hardware-based DSP implementation for real-time embedded systems.
+This project implements a real-time audio signal analyzer on FPGA. The system captures audio using an I2S microphone, processes it using FFT, and visualizes the frequency spectrum on a color LCD.
 
 ---
 
-## 🎯 Objectives
+## 🧠 System Architecture
 
-* Capture real-time audio using I2S interface
-* Implement FFT in FPGA (hardware-based)
-* Analyze frequency components
-* Display spectrum on LCD
-* Validate using simulation tools
+![Block Diagram](results/block_diagram.png)
 
 ---
 
-## 🧱 System Architecture
+## 🔧 Modules
 
-I2S Microphone → I2S Receiver → FFT Module → Magnitude Calculation → LCD Driver (SPI) → ST7735 Display
+### 🔹 I2S Receiver
 
----
+Converts serial audio data into parallel digital samples.
 
-## 🔧 Hardware Used
+### 🔹 FFT Module
 
-* Spartan-6 LX9 FPGA (100 MHz)
-* I2S Microphone
-* ST7735 SPI LCD
-* Supporting circuitry
+Performs frequency transformation (currently pass-through for simulation).
 
----
+### 🔹 Magnitude Calculator
 
-## 💻 Software & Tools
+Computes magnitude of FFT output for visualization.
 
-* Xilinx ISE 14.7 (Synthesis, Implementation, Timing)
-* ISim / ModelSim (Simulation & Waveform Analysis)
-* MATLAB (FFT verification & signal analysis)
-* Python (NumPy, Matplotlib for visualization)
-* Git & GitHub
-* MS Excel / Power BI
+### 🔹 LCD Driver
+
+SPI-based interface to display frequency data on LCD.
+
+### 🔹 Top Module
+
+Integrates all modules into a complete system.
 
 ---
 
-## ⚙️ Modules
+## 🧪 Simulation Results
 
-### I2S Receiver
+* Clock signal verified (10 ns period)
+* Random input samples generated
+* valid_in controls processing
+* Output follows input correctly
+* valid_out synchronized with valid_in
 
-Converts serial audio input into parallel samples.
-
-### FFT Module
-
-Performs frequency domain transformation.
-
-### Magnitude Calculation
-
-Computes amplitude of frequency bins.
-
-### LCD Driver
-
-Displays real-time spectrum on ST7735.
+![Waveform](results/waveform.png)
 
 ---
 
-## 📊 Results & Performance
+## 📂 Project Structure
 
-### Key Results
-
-* Real-time audio processing achieved
-* Accurate frequency detection
-* Stable LCD visualization
-* Low-latency operation
-
-### Performance
-
-* Sampling Rate: ~8–16 kHz
-* FFT Size: 256 / 512
-* Fully hardware-based processing
-
-### Verification
-
-* Verified using MATLAB
-* Simulation validated using ISim/ModelSim
+```
+src/            → Verilog source files  
+tb/             → Testbench  
+constraints/    → FPGA constraints  
+results/        → Simulation + diagrams  
+```
 
 ---
 
-## 📁 Project Structure
+## ⚙️ Tools Used
 
-FPGA-FFT-Audio-Analyzer/
-│
-├── README.md
-├── src/
-├── tb/
-├── docs/
-└── constraints/
+* ModelSim (Simulation)
+* Verilog HDL
+* Xilinx ISE
+* GitHub
 
 ---
 
-## 📸 Demonstration
+## 🚀 Future Improvements
 
-(Add real hardware + LCD output images here)
-
----
-
-## 🚀 Future Work
-
-* Higher FFT resolution
-* VGA/HDMI output
-* Data logging + Power BI integration
+* Integrate Xilinx FFT IP core
+* Real-time I2S audio capture
+* LCD spectrum visualization
+* Power BI integration for analysis
 
 ---
 
 ## 👨‍💻 Author
 
 Amin Uddin Qureshi
-Senior Systems Engineer | FPGA | Electronics | Data Analytics
-
----
-
-## 📎 License
-
-For educational and research purposes.
+FPGA & Electronics Engineer
+Pakistan Navy
