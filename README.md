@@ -1,117 +1,73 @@
-
-\# FPGA-Based Real-Time FFT Audio Signal Analyzer
-
-
-
-\## 📌 Overview
-
-This project implements a real-time audio signal analyzer using FPGA. The system captures audio input via an I2S microphone, processes it using FFT, and displays frequency spectrum data on an LCD.
-
-
-
-\## 🎯 Features
-
-\- Real-time audio acquisition (I2S interface)
-
-\- FFT processing (hardware-based)
-
-\- Magnitude calculation
-
-\- LCD visualization (SPI interface)
-
-\- Modular Verilog design
-
-
-
-\## 🏗️ System Architecture
-
-!\[System Diagram](Docs/your\_diagram\_name.png)
-
-
-
-=======
 # FPGA-Based Real-Time FFT Audio Signal Analyzer
 
 ## 📌 Overview
-
-This project implements a real-time audio signal analyzer on FPGA. The system captures audio using an I2S microphone, processes it using FFT, and visualizes the frequency spectrum on a color LCD.
-
----
-
-## 🧠 System Architecture
-
-![Block Diagram](results/block_diagram.png)
+This project implements a real-time audio signal analyzer using FPGA. The system captures audio input via an I2S microphone, processes it using Fast Fourier Transform (FFT), and displays frequency spectrum data on an SPI-based LCD.
 
 ---
 
-## 🔧 Modules
-
-### 🔹 I2S Receiver
-
-Converts serial audio data into parallel digital samples.
-
-### 🔹 FFT Module
-
-Performs frequency transformation (currently pass-through for simulation).
-
-### 🔹 Magnitude Calculator
-
-Computes magnitude of FFT output for visualization.
-
-### 🔹 LCD Driver
-
-SPI-based interface to display frequency data on LCD.
-
-### 🔹 Top Module
-
-Integrates all modules into a complete system.
+## 🧱 System Architecture
+![Block Diagram](Docs/block_diagram.png)
 
 ---
 
-## 🧪 Simulation Results
-
-* Clock signal verified (10 ns period)
-* Random input samples generated
-* valid_in controls processing
-* Output follows input correctly
-* valid_out synchronized with valid_in
-
-![Waveform](results/waveform.png)
+## 🔄 System Flow
+I2S Microphone → I2S Receiver → FFT Module → Magnitude Calculation → LCD Driver → Display Output
 
 ---
 
-## 📂 Project Structure
-
-```
-src/            → Verilog source files  
-tb/             → Testbench  
-constraints/    → FPGA constraints  
-results/        → Simulation + diagrams  
-```
+## ⚙️ Features
+- Real-time audio acquisition (I2S interface)
+- Hardware-based FFT processing
+- Magnitude calculation of frequency bins
+- LCD visualization (SPI interface - ST7735)
+- Modular Verilog design
 
 ---
 
-## ⚙️ Tools Used
+## 📁 Project Structure
 
-* ModelSim (Simulation)
-* Verilog HDL
-* Xilinx ISE
-* GitHub
+src/ → Verilog source files
+tb/ → Testbench files
+constraints/ → FPGA pin constraints
+Docs/ → Diagrams and images
+Results/ → Simulation outputs
+
 
 ---
 
-## 🚀 Future Improvements
+## 📊 Simulation Result
+![Waveform](Docs/waveform.jpg)
 
-* Integrate Xilinx FFT IP core
-* Real-time I2S audio capture
-* LCD spectrum visualization
-* Power BI integration for analysis
+---
+
+## ▶️ How to Run
+1. Open project in Xilinx ISE 14.7  
+2. Add all Verilog files from `src/`  
+3. Add constraints file from `constraints/`  
+4. Run simulation using testbench from `tb/`  
+5. Generate bitstream  
+6. Program FPGA board  
+
+---
+
+## 🛠 Hardware Used
+- Spartan-6 FPGA (LX9 MicroBoard)
+- I2S Microphone
+- ST7735 SPI LCD Display
 
 ---
 
 ## 👨‍💻 Author
+**Amin Uddin Qureshi**  
+- 18+ years experience in PCB repair & diagnostics  
+- FPGA & Embedded Systems Developer  
+- Expertise in hardware debugging, JTAG, and test equipment  
 
-Amin Uddin Qureshi
-FPGA & Electronics Engineer
-Pakistan Navy
->>>>>>> da3bc793e772fbefba9bd7b1c670c1d3027b12ef
+---
+
+## 🚀 Future Work
+- Integration with Power BI for visualization  
+- Advanced filtering techniques  
+- Real-time audio classification using AI  
+
+---
